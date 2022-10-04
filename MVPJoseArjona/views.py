@@ -12,4 +12,7 @@ def crear_familiar(request,nombre,apellido,edad):
     return HttpResponse(renderizar_template)
 
 def ver_familiar(request):
-    return HttpResponse('')
+    familiar=Familiar.objects.all
+    template=loader.get_template('ver_familiar.html')
+    renderizar_template=template.render({'familiar':familiar})
+    return HttpResponse(renderizar_template)
